@@ -1,0 +1,13 @@
+name: Hello
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: Colocar Em Produção
+    runs-on: self-hosted
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
