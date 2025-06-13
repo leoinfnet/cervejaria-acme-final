@@ -27,3 +27,10 @@ jobs:
         run: docker build -t cervejaria-acme:latest ./docker
       - name: Criando a Tag
         run: docker tag  cervejaria-acme:latest leogloriainfnet/cervejaria-acme:latest
+      - name: Login no Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USER}}
+          password: ${{secrets.DOCKER_TOKEN}}
+      - name: Push da Imagem
+        run: docker push ${{ secrets.DOCKERHUB_USER}}/cervejaria-acme:latest
