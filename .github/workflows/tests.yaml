@@ -1,0 +1,23 @@
+name: Testes Noturnos
+on:
+#  schedule:
+#    -  cron: '0 2 * * *'
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: Build and analyze
+    runs-on: self-hosted
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Setup JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: "correto"
+      - name: Run tests
+        id: run_tests
+        run: mvn test
