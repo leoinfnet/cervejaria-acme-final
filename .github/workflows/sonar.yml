@@ -2,7 +2,7 @@ name: Sonar
 on:
   push:
     branches:
-      - main
+      - prod
 jobs:
   build:
     name: Build and analyze
