@@ -21,3 +21,9 @@ jobs:
           maven-version: '3.8.2'
       - name: Build Com Maven
         run: mvn -Dmaven.test.skip=true clean package
+      - name: Copiando Artefato
+        run: cp target/cervejaria-acme-0.0.1-SNAPSHOT.jar docker/cervejaria-acme-0.0.1-SNAPSHOT.jar
+      - name: Build da Imagem
+        run: docker build -t cervejaria-acme:latest ./docker
+      - name: Criando a Tag
+        run: docker tag  cervejaria-acme:latest leogloriainfnet/cervejaria-acme:latest
