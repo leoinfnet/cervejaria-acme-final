@@ -34,3 +34,7 @@ jobs:
           password: ${{secrets.DOCKER_TOKEN}}
       - name: Push da Imagem
         run: docker push ${{ secrets.DOCKERHUB_USER}}/cervejaria-acme:latest
+      - name: Restartando Deploy
+        run: kubectl rollout restart deploy cervejaria-deploy
+      - name: Aguardar Deploy atualizar
+        run: kubectl rollout status deploy cervejaria-deploy
