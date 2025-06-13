@@ -18,6 +18,10 @@ jobs:
         with:
           java-version: 17
           distribution: "corretto"
+      - name: Setup Maven
+        uses: stCarolas/setup-maven@v5
+        with:
+          maven-version: '3.8.2'
       - name: Run tests
         id: run_tests
         run: mvn test
