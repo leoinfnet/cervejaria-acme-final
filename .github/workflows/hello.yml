@@ -20,4 +20,4 @@ jobs:
         with:
           maven-version: '3.8.2'
       - name: Build Com Maven
-        run: mvn clean package -DskipTest
+        run: mvn -Dmaven.test.skip=true clean package
